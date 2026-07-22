@@ -14,6 +14,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,3 +37,18 @@ jobs:
           name: epic-plan-extension
           path: epic-plan-extension.zip
           if-no-files-found: error
+
+      - name: Publish rolling internal release (permanent download link)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: internal-latest
+          name: Extension (internal, load-unpacked)
+          body: |
+            Внутренняя сборка расширения для Load unpacked (с фиксированным key,
+            ID offbcpdoobeglioileapfcpalodcdmom). Всегда содержит последнюю версию из main.
+
+            Установка: скачайте epic-plan-extension.zip, распакуйте до папки с manifest.json,
+            откройте chrome://extensions, включите Developer mode и Load unpacked -> папка dist.
+          files: epic-plan-extension.zip
+          prerelease: true
+          make_latest: false
