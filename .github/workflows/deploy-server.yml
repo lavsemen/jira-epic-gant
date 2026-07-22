@@ -30,7 +30,8 @@ jobs:
           script: |
             set -e
             cd /var/www/epic-plan
-            git pull --ff-only
+            git fetch origin main
+            git reset --hard origin/main
             yarn install --frozen-lockfile
             yarn workspace @epic-plan/shared build
             yarn workspace @epic-plan/server build
