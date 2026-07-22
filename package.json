@@ -1,0 +1,29 @@
+{
+  "name": "jira-epic-gantt",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "extension",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "yarn workspace @jira-epic-gantt/server dev & yarn workspace @jira-epic-gantt/extension dev",
+    "dev:extension": "yarn workspace @jira-epic-gantt/extension dev",
+    "dev:server": "yarn workspace @jira-epic-gantt/server dev",
+    "build": "yarn workspace @jira-epic-gantt/shared build && yarn workspace @jira-epic-gantt/server build && yarn workspace @jira-epic-gantt/extension build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,md}\"",
+    "typecheck": "yarn workspace @jira-epic-gantt/shared typecheck && yarn workspace @jira-epic-gantt/server typecheck && yarn workspace @jira-epic-gantt/extension typecheck"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  }
+}

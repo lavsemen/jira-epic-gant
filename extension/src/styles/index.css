@@ -1,0 +1,477 @@
+:host,
+#jeg-root {
+  all: initial;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: #172b4d;
+  font-size: 13px;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+#jeg-root *,
+#jeg-root *::before,
+#jeg-root *::after {
+  box-sizing: border-box;
+}
+
+.jeg-modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.jeg-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(9, 30, 66, 0.45);
+  cursor: pointer;
+}
+
+.jeg-modal {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, calc(100vw - 48px));
+  max-height: min(800px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #dfe1e6;
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(9, 30, 66, 0.35);
+  overflow: hidden;
+  outline: none;
+  --jeg-task-col-width: 280px;
+  --jeg-row-height: 44px;
+  --jeg-row-padding-y: 6px;
+  --jeg-bar-height: 18px;
+  --jeg-bar-top: 13px;
+  --jeg-section-gap: 4px;
+}
+
+.jeg-popover__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid #ebecf0;
+  background: #fafbfc;
+}
+
+.jeg-popover__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #172b4d;
+}
+
+.jeg-popover__key {
+  color: #0052cc;
+  margin-right: 6px;
+}
+
+.jeg-popover__close,
+.jeg-btn {
+  border: 1px solid #dfe1e6;
+  background: #fff;
+  color: #172b4d;
+  border-radius: 3px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.jeg-popover__close:hover,
+.jeg-btn:hover {
+  background: #f4f5f7;
+}
+
+.jeg-popover__close:focus-visible,
+.jeg-btn:focus-visible,
+.jeg-select:focus-visible {
+  outline: 2px solid #4c9aff;
+  outline-offset: 1px;
+}
+
+.jeg-progress {
+  margin-top: 6px;
+}
+
+.jeg-progress__label {
+  color: #5e6c84;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.jeg-progress__track {
+  height: 6px;
+  background: #ebecf0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.jeg-progress__fill {
+  height: 100%;
+  background: #00875a;
+}
+
+.jeg-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid #ebecf0;
+}
+
+.jeg-toolbar__left,
+.jeg-toolbar__right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.jeg-select {
+  font: inherit;
+  border: 1px solid #dfe1e6;
+  border-radius: 3px;
+  padding: 4px 6px;
+  background: #fff;
+}
+
+.jeg-btn[aria-pressed='true'] {
+  background: #deebff;
+  border-color: #4c9aff;
+  color: #0052cc;
+}
+
+.jeg-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  position: relative;
+}
+
+.jeg-timeline {
+  min-width: 100%;
+}
+
+.jeg-timeline__header,
+.jeg-timeline__row,
+.jeg-section__row {
+  display: grid;
+  grid-template-columns: var(--jeg-task-col-width) 1fr;
+  min-height: var(--jeg-row-height);
+}
+
+.jeg-timeline__header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #f4f5f7;
+  border-bottom: 1px solid #dfe1e6;
+}
+
+.jeg-col-task {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #fff;
+  border-right: 1px solid #dfe1e6;
+  padding: var(--jeg-row-padding-y) 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.jeg-timeline__header .jeg-col-task {
+  position: relative;
+  background: #f4f5f7;
+  z-index: 4;
+  font-weight: 600;
+}
+
+.jeg-timeline__header .jeg-col-days {
+  position: relative;
+}
+
+.jeg-resize-col {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 8px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 6;
+  touch-action: none;
+}
+
+.jeg-resize-col::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 3px;
+  width: 2px;
+  border-radius: 1px;
+  background: #c1c7d0;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.jeg-resize-col:hover::after,
+.jeg-resize-col:active::after {
+  opacity: 1;
+  background: #4c9aff;
+}
+
+.jeg-resize-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 8px;
+  cursor: row-resize;
+  z-index: 6;
+  touch-action: none;
+}
+
+.jeg-resize-row::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 3px;
+  height: 2px;
+  border-radius: 1px;
+  background: #c1c7d0;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.jeg-resize-row:hover::after,
+.jeg-resize-row:active::after {
+  opacity: 1;
+  background: #4c9aff;
+}
+
+.jeg-col-days {
+  position: relative;
+  overflow: hidden;
+}
+
+.jeg-days-scale {
+  display: grid;
+  height: 100%;
+  min-height: var(--jeg-row-height, 40px);
+}
+
+.jeg-day-cell {
+  border-right: 1px solid #ebecf0;
+  padding: 2px 0;
+  font-size: 11px;
+  line-height: 1.15;
+  color: #5e6c84;
+  text-align: center;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: clip;
+  word-break: keep-all;
+}
+
+.jeg-day-cell--month {
+  font-weight: 600;
+  color: #42526e;
+  box-shadow: inset 2px 0 0 #4c9aff;
+}
+
+.jeg-group-header {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  grid-column: 1 / -1;
+  padding: 6px 10px;
+  background: #fafbfc;
+  font-weight: 600;
+  border-bottom: 1px solid #ebecf0;
+}
+
+.jeg-timeline__row {
+  border-bottom: 1px solid #f4f5f7;
+}
+
+.jeg-timeline__row:hover .jeg-col-task {
+  background: #fafbfc;
+}
+
+.jeg-task-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+}
+
+.jeg-task-link:hover .jeg-task-key {
+  text-decoration: underline;
+}
+
+.jeg-task-key {
+  color: #0052cc;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.jeg-task-summary {
+  color: #172b4d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(var(--jeg-task-col-width) - 28px);
+}
+
+.jeg-bars {
+  position: relative;
+  height: 100%;
+  min-height: var(--jeg-row-height, 40px);
+}
+
+.jeg-bar {
+  position: absolute;
+  top: var(--jeg-bar-top, 11px);
+  height: var(--jeg-bar-height, 18px);
+  border-radius: 3px;
+  background: #4c9aff;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+}
+
+.jeg-bar--done {
+  background: #00875a;
+}
+
+.jeg-bar--cancelled {
+  background: #6b778c;
+}
+
+.jeg-bar--overdue {
+  background: #de350b;
+}
+
+.jeg-today-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ff5630;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.jeg-section {
+  border-top: 1px solid #ebecf0;
+  background: #fff;
+}
+
+.jeg-section__title {
+  font-weight: 600;
+  padding: 8px 10px;
+  background: #fafbfc;
+  border-bottom: 1px solid #ebecf0;
+  position: sticky;
+  left: 0;
+}
+
+.jeg-section__row {
+  border-bottom: 1px solid #f4f5f7;
+}
+
+.jeg-section__row:hover .jeg-col-task {
+  background: #fafbfc;
+}
+
+.jeg-section__meta {
+  display: flex;
+  align-items: center;
+  padding: var(--jeg-row-padding-y, 6px) 10px;
+  color: #5e6c84;
+  font-size: 12px;
+  gap: var(--jeg-section-gap, 4px);
+}
+
+.jeg-section__reason {
+  color: #5e6c84;
+  font-size: 12px;
+}
+
+.jeg-state {
+  padding: 24px 16px;
+  text-align: center;
+  color: #5e6c84;
+}
+
+.jeg-state__actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.jeg-skeleton {
+  padding: 14px;
+}
+
+.jeg-skeleton__line {
+  height: 12px;
+  background: linear-gradient(90deg, #ebecf0 25%, #f4f5f7 50%, #ebecf0 75%);
+  background-size: 200% 100%;
+  animation: jeg-shimmer 1.2s infinite;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.jeg-skeleton__line--lg {
+  height: 18px;
+  width: 60%;
+}
+
+.jeg-overdue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #de350b;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@keyframes jeg-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

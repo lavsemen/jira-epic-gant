@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Jira Epic Gantt",
+  "description": "Диаграмма Ганта по дочерним задачам эпика для Jira Cloud (ytme.atlassian.net)",
+  "version": "0.1.0",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://ytme.atlassian.net/*",
+    "http://localhost:8787/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ytme.atlassian.net/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*", "auth-callback.html"],
+      "matches": ["https://ytme.atlassian.net/*", "http://localhost:8787/*"]
+    }
+  ]
+}
