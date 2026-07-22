@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { GANTT_LAYOUT } from '@jira-epic-gantt/shared';
+import { GANTT_LAYOUT } from '@epic-plan/shared';
 import { usePointerResize } from './usePointerResize';
 
 interface Props {

@@ -1,4 +1,4 @@
-import type { ApiErrorBody } from '@jira-epic-gantt/shared';
+import type { ApiErrorBody } from '@epic-plan/shared';
 
 interface Props {
   error: ApiErrorBody;

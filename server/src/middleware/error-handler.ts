@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from 'express';
-import type { ApiErrorBody, ApiErrorCode } from '@jira-epic-gantt/shared';
+import type { ApiErrorBody, ApiErrorCode } from '@epic-plan/shared';
 import { AppError } from '../jira/jira-errors.js';
 
 function statusForCode(code: ApiErrorCode): number {

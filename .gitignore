@@ -17,6 +17,13 @@ coverage/
 extension/key.pem
 key.pem
 
+# CI deploy key (keep private, do not commit)
+deploy_key
+deploy_key.pub
+
+# Build artifacts
+epic-plan-extension.zip
+
 # Server data
 server/data/
 *.sqlite

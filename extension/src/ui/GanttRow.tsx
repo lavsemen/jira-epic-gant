@@ -1,4 +1,4 @@
-import type { GanttTask } from '@jira-epic-gantt/shared';
+import type { GanttTask } from '@epic-plan/shared';
 import type { CalendarDate } from '../gantt/date-utils';
 import { taskBarLayout } from '../gantt/timeline-builder';
 import { useSafeClick } from './useSafeClick';

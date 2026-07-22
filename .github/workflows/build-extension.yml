@@ -1,0 +1,37 @@
+name: Build extension zip
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'extension/**'
+      - 'shared/**'
+      - 'yarn.lock'
+      - 'package.json'
+      - '.github/workflows/build-extension.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build & zip extension (fresh dist, key kept for internal load-unpacked)
+        run: yarn package:extension
+
+      - name: Upload extension zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: epic-plan-extension
+          path: epic-plan-extension.zip
+          if-no-files-found: error

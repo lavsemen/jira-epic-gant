@@ -1,4 +1,4 @@
-import { GANTT_ZOOM_DAY_WIDTH, TIMELINE_PADDING_WORKING_DAYS, type GanttTask, type GanttZoom } from '@jira-epic-gantt/shared';
+import { GANTT_ZOOM_DAY_WIDTH, TIMELINE_PADDING_WORKING_DAYS, type GanttTask, type GanttZoom } from '@epic-plan/shared';
 import {
   addWorkingDays,
   compareCalendarDates,

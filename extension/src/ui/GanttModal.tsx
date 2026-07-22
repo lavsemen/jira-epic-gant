@@ -4,8 +4,8 @@ import type {
   EpicGanttData,
   GanttGrouping,
   GanttZoom,
-} from '@jira-epic-gantt/shared';
-import { GANTT_LAYOUT, STORAGE_KEYS } from '@jira-epic-gantt/shared';
+} from '@epic-plan/shared';
+import { GANTT_LAYOUT, STORAGE_KEYS } from '@epic-plan/shared';
 import { partitionVisibleTasks } from '../gantt/task-layout';
 import { GanttHeader } from './GanttHeader';
 import { GanttToolbar } from './GanttToolbar';

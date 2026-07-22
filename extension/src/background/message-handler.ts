@@ -4,7 +4,7 @@ import {
   normalizeIssueKey,
   type ExtensionMessage,
   type ExtensionResponse,
-} from '@jira-epic-gantt/shared';
+} from '@epic-plan/shared';
 import {
   ApiClientError,
   clearSessionToken,

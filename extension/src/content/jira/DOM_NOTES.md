@@ -15,7 +15,7 @@
    - `issueCardCandidates`
    - `iconMountCandidates`
    - `epicIndicators`
-5. Пересоберите: `yarn workspace @jira-epic-gantt/extension build`
+5. Пересоберите: `yarn workspace @epic-plan/extension build`
 6. Reload unpacked extension.
 
 ## Стратегии ключа

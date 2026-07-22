@@ -1,5 +1,5 @@
 import { randomBytes } from 'node:crypto';
-import type { SessionInfo } from '@jira-epic-gantt/shared';
+import type { SessionInfo } from '@epic-plan/shared';
 import { config } from '../config.js';
 import {
   createSession,

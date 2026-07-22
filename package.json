@@ -1,5 +1,5 @@
 {
-  "name": "jira-epic-gantt",
+  "name": "epic-plan",
   "private": true,
   "version": "0.1.0",
   "workspaces": [
@@ -8,13 +8,14 @@
     "shared"
   ],
   "scripts": {
-    "dev": "yarn workspace @jira-epic-gantt/server dev & yarn workspace @jira-epic-gantt/extension dev",
-    "dev:extension": "yarn workspace @jira-epic-gantt/extension dev",
-    "dev:server": "yarn workspace @jira-epic-gantt/server dev",
-    "build": "yarn workspace @jira-epic-gantt/shared build && yarn workspace @jira-epic-gantt/server build && yarn workspace @jira-epic-gantt/extension build",
+    "dev": "yarn workspace @epic-plan/server dev & yarn workspace @epic-plan/extension dev",
+    "dev:extension": "yarn workspace @epic-plan/extension dev",
+    "dev:server": "yarn workspace @epic-plan/server dev",
+    "build": "yarn workspace @epic-plan/shared build && yarn workspace @epic-plan/server build && yarn workspace @epic-plan/extension build",
+    "package:extension": "yarn workspace @epic-plan/shared build && yarn workspace @epic-plan/extension build && rm -f epic-plan-extension.zip && cd extension/dist && zip -r ../../epic-plan-extension.zip .",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css,md}\"",
-    "typecheck": "yarn workspace @jira-epic-gantt/shared typecheck && yarn workspace @jira-epic-gantt/server typecheck && yarn workspace @jira-epic-gantt/extension typecheck"
+    "typecheck": "yarn workspace @epic-plan/shared typecheck && yarn workspace @epic-plan/server typecheck && yarn workspace @epic-plan/extension typecheck"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.18.0",

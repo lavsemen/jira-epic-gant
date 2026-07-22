@@ -1,4 +1,4 @@
-import type { EpicGanttData } from '@jira-epic-gantt/shared';
+import type { EpicGanttData } from '@epic-plan/shared';
 import { ProgressBar } from './ProgressBar';
 
 interface Props {

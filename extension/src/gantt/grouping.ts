@@ -1,4 +1,4 @@
-import type { GanttGrouping, GanttTask } from '@jira-epic-gantt/shared';
+import type { GanttGrouping, GanttTask } from '@epic-plan/shared';
 
 export interface TaskGroup {
   id: string;

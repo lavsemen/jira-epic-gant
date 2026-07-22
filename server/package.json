@@ -1,5 +1,5 @@
 {
-  "name": "@jira-epic-gantt/server",
+  "name": "@epic-plan/server",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@jira-epic-gantt/shared": "0.1.0",
+    "@epic-plan/shared": "0.1.0",
     "better-sqlite3": "^11.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",

@@ -5,7 +5,7 @@ import {
   type ScheduleGapReason,
   type StatusCategoryKey,
   type TaskDateState,
-} from '@jira-epic-gantt/shared';
+} from '@epic-plan/shared';
 import { config } from '../config.js';
 import type { JiraSearchIssue } from './jira-client.js';
 import { resolveInProgressStartDate, type JiraStatusInfo } from './in-progress.js';

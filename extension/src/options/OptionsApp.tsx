@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { SessionInfo } from '@jira-epic-gantt/shared';
+import type { SessionInfo } from '@epic-plan/shared';
 
 export function OptionsApp() {
   const [session, setSession] = useState<SessionInfo | null>(null);
@@ -28,7 +28,7 @@ export function OptionsApp() {
 
   return (
     <div className="options">
-      <h1>Jira Epic Gantt — настройки</h1>
+      <h1>Epic Plan Extension — настройки</h1>
       <p>Диаграмма строится так:</p>
       <ul>
         <li>

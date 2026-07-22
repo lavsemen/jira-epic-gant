@@ -1,4 +1,4 @@
-import { ISSUE_KEY_REGEX, normalizeIssueKey } from '@jira-epic-gantt/shared';
+import { ISSUE_KEY_REGEX, normalizeIssueKey } from '@epic-plan/shared';
 
 export type KeyDetectionStrategy = 'browse-link' | 'data-attr' | 'text-fallback';
 

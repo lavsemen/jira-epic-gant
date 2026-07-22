@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { ApiErrorBody, EpicGanttData } from '@jira-epic-gantt/shared';
+import type { ApiErrorBody, EpicGanttData } from '@epic-plan/shared';
 import { sendExtensionMessage } from '../content/messaging';
 import { rememberEpicKey } from '../content/jira/epic-detector';
 import { GanttModal, type ModalViewState } from './GanttModal';

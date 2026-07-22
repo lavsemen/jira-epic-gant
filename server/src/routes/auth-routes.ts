@@ -24,7 +24,7 @@ function renderCallbackPage(sessionToken: string, extensionId: string): string {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Авторизация — Jira Epic Gantt</title>
+  <title>Авторизация — Epic Plan Extension</title>
   <style>
     body { font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; background: #f4f5f7; color: #172b4d; }
     .card { background: #fff; padding: 24px 32px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.12); max-width: 480px; text-align: center; }

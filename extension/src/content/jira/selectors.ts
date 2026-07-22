@@ -54,4 +54,4 @@ export const JIRA_SELECTORS = {
 export const ICON_ATTR = 'data-gantt-icon';
 export const ICON_HOST_ATTR = 'data-gantt-icon-host';
 export const CARD_MARK_ATTR = 'data-gantt-processed';
-export const EXTENSION_ROOT_TAG = 'jira-epic-gantt-extension-root';
+export const EXTENSION_ROOT_TAG = 'epic-plan-extension-root';

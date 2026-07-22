@@ -1,4 +1,4 @@
-import type { GanttGrouping, GanttZoom } from '@jira-epic-gantt/shared';
+import type { GanttGrouping, GanttZoom } from '@epic-plan/shared';
 
 interface Props {
   grouping: GanttGrouping;

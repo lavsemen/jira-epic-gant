@@ -1,4 +1,4 @@
-import type { ExtensionMessage, ExtensionResponse } from '@jira-epic-gantt/shared';
+import type { ExtensionMessage, ExtensionResponse } from '@epic-plan/shared';
 
 export function sendExtensionMessage<T extends ExtensionResponse>(
   message: ExtensionMessage,

@@ -1,4 +1,4 @@
-import { REQUEST_CACHE_TTL_MS, type EpicGanttData } from '@jira-epic-gantt/shared';
+import { REQUEST_CACHE_TTL_MS, type EpicGanttData } from '@epic-plan/shared';
 
 interface CacheEntry {
   data: EpicGanttData;

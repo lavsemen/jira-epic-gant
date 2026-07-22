@@ -1,5 +1,5 @@
 import { useMemo, useImperativeHandle, forwardRef, type RefObject } from 'react';
-import type { GanttGrouping, GanttTask, GanttZoom } from '@jira-epic-gantt/shared';
+import type { GanttGrouping, GanttTask, GanttZoom } from '@epic-plan/shared';
 import { formatDayLabel, formatDayLabelFull } from '../gantt/date-utils';
 import { groupTasks } from '../gantt/grouping';
 import { buildTimeline } from '../gantt/timeline-builder';

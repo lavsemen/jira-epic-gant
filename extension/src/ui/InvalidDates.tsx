@@ -1,4 +1,4 @@
-import type { GanttTask } from '@jira-epic-gantt/shared';
+import type { GanttTask } from '@epic-plan/shared';
 
 interface Props {
   tasks: GanttTask[];

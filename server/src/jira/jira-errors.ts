@@ -1,4 +1,4 @@
-import type { ApiErrorCode } from '@jira-epic-gantt/shared';
+import type { ApiErrorCode } from '@epic-plan/shared';
 
 export class AppError extends Error {
   readonly code: ApiErrorCode;

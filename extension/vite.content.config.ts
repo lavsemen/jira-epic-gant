@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     root: resolve(__dirname),
     resolve: {
       alias: {
-        '@jira-epic-gantt/shared': resolve(__dirname, '../shared/src/index.ts'),
+        '@epic-plan/shared': resolve(__dirname, '../shared/src/index.ts'),
       },
     },
     plugins: [react()],

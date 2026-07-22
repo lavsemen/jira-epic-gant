@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { isValidIssueKey, normalizeIssueKey } from '@jira-epic-gantt/shared';
+import { isValidIssueKey, normalizeIssueKey } from '@epic-plan/shared';
 import { config } from '../config.js';
 import { requireAuth, type AuthedRequest } from '../middleware/auth.js';
 import {

@@ -1,5 +1,5 @@
-import type { ApiErrorBody, EpicGanttData, JiraFieldInfo, SessionInfo } from '@jira-epic-gantt/shared';
-import { STORAGE_KEYS } from '@jira-epic-gantt/shared';
+import type { ApiErrorBody, EpicGanttData, JiraFieldInfo, SessionInfo } from '@epic-plan/shared';
+import { STORAGE_KEYS } from '@epic-plan/shared';
 import { BACKEND_URL } from '../shared/config';
 
 async function getSessionToken(): Promise<string | undefined> {

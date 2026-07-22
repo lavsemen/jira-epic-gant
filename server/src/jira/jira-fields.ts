@@ -1,4 +1,4 @@
-import type { JiraFieldInfo } from '@jira-epic-gantt/shared';
+import type { JiraFieldInfo } from '@epic-plan/shared';
 
 interface RawField {
   id: string;

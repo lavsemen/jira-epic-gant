@@ -13,5 +13,5 @@ export function debugLog(...args: unknown[]): void {
   if (!isDebugEnabled()) {
     return;
   }
-  console.info('[jira-epic-gantt]', ...args);
+  console.info('[epic-plan]', ...args);
 }
