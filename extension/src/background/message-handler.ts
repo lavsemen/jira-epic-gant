@@ -21,7 +21,7 @@ import {
   getCachedEpicTasks,
   setCachedEpicTasks,
 } from './request-cache';
-import { JIRA_HOST } from '../shared/config';
+import { BACKEND_URL, JIRA_HOST } from '../shared/config';
 
 async function handleMessage(message: ExtensionMessage): Promise<ExtensionResponse> {
   switch (message.type) {
@@ -150,6 +150,42 @@ async function handleMessage(message: ExtensionMessage): Promise<ExtensionRespon
 export function registerMessageHandler(): void {
   chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     if (!isExtensionMessage(message)) {
+      sendResponse({
+        type: 'UNKNOWN_MESSAGE',
+        ok: false,
+        error: { code: 'BAD_REQUEST', message: 'Некорректное сообщение.' },
+      } satisfies ExtensionResponse);
+      return false;
+    }
+
+    void handleMessage(message).then(sendResponse);
+    return true;
+  });
+}
+
+/**
+ * Accepts the session token from the backend OAuth callback page
+ * (served on BACKEND_URL) via externally_connectable messaging.
+ * Only SAVE_SESSION_TOKEN from the backend origin is allowed.
+ */
+export function registerExternalMessageHandler(): void {
+  chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
+    const senderUrl = sender.url ?? '';
+    const originAllowed =
+      sender.origin === BACKEND_URL ||
+      senderUrl === BACKEND_URL ||
+      senderUrl.startsWith(`${BACKEND_URL}/`);
+
+    if (!originAllowed) {
+      sendResponse({
+        type: 'UNKNOWN_MESSAGE',
+        ok: false,
+        error: { code: 'BAD_REQUEST', message: 'Недопустимый источник сообщения.' },
+      } satisfies ExtensionResponse);
+      return false;
+    }
+
+    if (!isExtensionMessage(message) || message.type !== 'SAVE_SESSION_TOKEN') {
       sendResponse({
         type: 'UNKNOWN_MESSAGE',
         ok: false,

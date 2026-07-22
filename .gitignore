@@ -13,6 +13,10 @@ coverage/
 .env.*
 !.env.example
 
+# Extension signing key (keep private, do not commit)
+extension/key.pem
+key.pem
+
 # Server data
 server/data/
 *.sqlite

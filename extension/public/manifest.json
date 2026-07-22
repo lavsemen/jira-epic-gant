@@ -3,6 +3,7 @@
   "name": "Jira Epic Gantt",
   "description": "Диаграмма Ганта по дочерним задачам эпика для Jira Cloud (ytme.atlassian.net)",
   "version": "0.1.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAydJqKOk4XoQ+u3DVGqT9D5Aot4/zXXhu0D7mU3xNhENpjUxe1yUqcofzpwNvO0wbuoBajNNQsmhTJ82rfTpmREEdzI8xhFZgnrlJTq71a1K0LXndBJftyARQFaCFoS4168RfZNlS/IMWePQxir5j2xnF6shhdBhGP6BMX5rMIPYuGwSxBssPOFqLAK0sxWHssWpK6d11XzE7Rga/ig8kHQh9DExe20H8J9kKqr7M15f95QSbewqB4IYTEX7u5zI0c1Xc3tqfXTCRTZgiS5DiBBZjjmp4hjlqmRCm+xpB1e8qleXNYNWPwN9zJh2Sp/LGqdm1H+ta8iZpGRgU8DjWkwIDAQAB",
   "icons": {
     "16": "icons/icon-16.png",
     "48": "icons/icon-48.png",
@@ -11,8 +12,12 @@
   "permissions": ["storage", "tabs"],
   "host_permissions": [
     "https://ytme.atlassian.net/*",
+    "https://epicplan.ru/*",
     "http://localhost:8787/*"
   ],
+  "externally_connectable": {
+    "matches": ["https://epicplan.ru/*"]
+  },
   "background": {
     "service_worker": "service-worker.js",
     "type": "module"
@@ -31,7 +36,7 @@
   "web_accessible_resources": [
     {
       "resources": ["assets/*", "auth-callback.html"],
-      "matches": ["https://ytme.atlassian.net/*", "http://localhost:8787/*"]
+      "matches": ["https://ytme.atlassian.net/*", "https://epicplan.ru/*", "http://localhost:8787/*"]
     }
   ]
 }
